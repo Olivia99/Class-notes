@@ -1,0 +1,19 @@
+var x=100
+var goingforward=true; //name it! don't use undefined name because it will confuse you when you go back and look for it.
+while(true){
+  background(255);
+  ellipse(x,100,30,30)
+  if(goingforward){
+    x=x+10
+    }else{
+      x=x-10
+      }
+   if(x>width){
+    goingforward=false;
+    }
+   if(x<0){
+    goingforward=true
+    }
+}
+  
+    
