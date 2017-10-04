@@ -1,0 +1,15 @@
+background(0);
+fill(225);
+function circles(x){
+  var y=20;
+  while(y<height){
+    ellipse(x,y,15,15);
+    y=y+20;
+  }
+}
+
+var x=20
+while(x<width){
+  circles(x);
+  x=x+20;
+}
