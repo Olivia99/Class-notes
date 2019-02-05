@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.droptarget {
+  float: left; 
+  width: 100px; 
+  height: 200px;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  
+}
+
+.img{width: 50px;
+}
+</style>
+</head>
+<body>
+
+<p>Drag one tile that matches the pronunciation</p>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+<img class="img" src="https://uploads-ssl.webflow.com/5c198f0cf264d6cfbc4a7c03/5c52b7a1ffd5482e5af04c37_o.png" ondragstart="dragStart(event)" ondragend="dragEnd(event)" draggable="true" id="dragtarget">
+
+<img class="img" src="https://uploads-ssl.webflow.com/5c198f0cf264d6cfbc4a7c03/5c52b7ebd9c87713e847f784_Untitled-1.png" ondragstart="dragStart(event)" ondragend="dragEnd(event)" draggable="true" id="dragtarget2">
+
+<img class="img" src="https://uploads-ssl.webflow.com/5c198f0cf264d6cfbc4a7c03/5c52b710ffd5489219f047ca_ae.png" ondragstart="dragStart(event)" ondragend="dragEnd(event)" draggable="true" id="dragtarget3">
+
+</div>
+
+<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<p style="clear:both;"><strong>Note:</strong> drag events are not supported in Internet Explorer 8 and earlier versions or Safari 5.1 and earlier versions.</p>
+
+<p id="demo"></p>
+
+<script>
+function dragStart(event) {
+  event.dataTransfer.setData("Text", event.target.id);
+  document.getElementById("demo").innerHTML = "Started to drag the p element" +"a";
+}
+
+function dragEnd(event) {
+  document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("Text");
+  event.target.appendChild(document.getElementById(data));
+}
+</script>
+
+</body>
+</html>
