@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#droptarget {
+  float: left; 
+  width: 200px; 
+  height: 35px;
+  margin: 55px;
+  margin-top: 155px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+</head>
+<body>
+
+<img src=" https://uploads-ssl.webflow.com/5c198f0cf264d6cfbc4a7c03/5c52b7a1ffd5482e5af04c37_o.png"  ondragstart="dragStart(event)" draggable="true" id="dragtarget2">
+
+<div id="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+</div>
+
+<p style="clear:both;"><strong>Note:</strong> Drag a tile to complite this word</p>
+
+<p id="demo"></p>
+
+<script>
+function dragStart(event) {
+  event.dataTransfer.setData("Text", event.target.id);
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+ // document.getElementById("demo").innerHTML = "The p element is OVER the droptarget.";
+  event.target.style.border = "4px dotted green";
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("Text");
+  event.target.appendChild(document.getElementById(data));
+  document.getElementById("demo").innerHTML = "The p element was dropped.";
+}
+</script>
+
+</body>
+</html>
